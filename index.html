@@ -178,6 +178,9 @@ nav {
   transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
   box-shadow: 0 4px 24px rgba(0,0,0,0.35);
 }
+a.fab-btn {
+  text-decoration: none;
+}
 .fab-btn:hover {
   transform: scale(1.12);
   background: var(--gold);
@@ -203,6 +206,35 @@ nav {
   margin-bottom: 72px;
   opacity: 0;
   animation: fadeUp 0.8s 0.4s ease forwards;
+}
+
+.hero-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.hero-content {
+  flex: 1;
+}
+
+.hero-image {
+  flex-shrink: 0;
+  width: 260px;
+  height: 340px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.25);
+  background: var(--bg-card);
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .hero-eyebrow {
@@ -700,6 +732,15 @@ footer {
    RESPONSIVE
 ═══════════════════════════════════════════ */
 @media (max-width: 860px) {
+  .hero-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .hero-image {
+    width: 200px;
+    height: 260px;
+    margin-top: 12px;
+  }
   .content-grid {
     grid-template-columns: 1fr;
   }
@@ -722,10 +763,6 @@ footer {
   }
 
   .hero h1 { font-size: clamp(2.4rem, 10vw, 3.4rem); }
-  
-  /* Force name to one line on mobile */
-  .hero-br { display: none; }
-  .hero-em::before { content: " "; }
 }
 
 @media (max-width: 520px) {
@@ -741,6 +778,7 @@ footer {
   body { background: white !important; color: black !important; }
   .page { padding: 0; max-width: 100%; }
   .content-grid { grid-template-columns: 1fr 220px; }
+  .hero-image { border: none !important; box-shadow: none !important; }
   .job-card, .project-card { border: 1px solid #ccc !important; background: white !important; }
   .reveal { opacity: 1 !important; transform: none !important; }
   .sidebar { position: static; }
@@ -773,8 +811,8 @@ footer {
     <li><a href="#projects">AI Web Apps</a></li>
     <li><a href="#martech">MarTech</a></li>
     <li><a href="#certifications">Certs</a></li>
-    <li><a href="#education">Education</a></li>
     <li><a href="#awards">Awards</a></li>
+    <li><a href="#education">Education</a></li>
   </ul>
 </nav>
 
@@ -783,29 +821,36 @@ footer {
     <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
     <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
   </button>
-  <button class="fab-btn" onclick="window.print()" title="Print / Save as PDF" aria-label="Download PDF">
+  <a href="https://docs.google.com/document/d/158tE1XaDNeGnq7MymFMMtIVsSnGvjkOrPB_3hpe1DCY/edit?tab=t.0" target="_blank" rel="noopener" class="fab-btn" title="View / Download Resume" aria-label="Download Resume">
     <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="8 17 12 21 16 17"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.88 18.09A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.29"/></svg>
-  </button>
+  </a>
 </div>
 
 <div class="page">
 
   <section class="hero" id="hero">
-    <div class="hero-eyebrow">Award-Winning Product Manager</div>
-    <h1>Nabil<br class="hero-br"><em class="hero-em">Pervez</em></h1>
-    <p class="hero-tagline">MarTech &amp; AI Implementation · Certified ScrumMaster</p>
-    <div class="hero-contact">
-      <span>(214) 605-4762</span>
-      <span>Dallas–Fort Worth, TX</span>
-      <a href="mailto:nabilpervezgg@gmail.com">nabilpervezgg@gmail.com</a>
-      <a href="https://linkedin.com/in/perveznabil" target="_blank" rel="noopener">LinkedIn ↗</a>
-      <a href="https://github.com/nabilpervez" target="_blank" rel="noopener">GitHub ↗</a>
-      <a href="https://www.behance.net/aoecreative" target="_blank" rel="noopener">Behance / AOE ↗</a>
-      <a href="https://nabilpervez.com/products" target="_blank" rel="noopener">Portfolio ↗</a>
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-eyebrow">Award-Winning Product Manager</div>
+        <h1><em class="hero-em">Nabil</em> Pervez</h1>
+        <p class="hero-tagline">MarTech &amp; AI Implementation · Certified ScrumMaster</p>
+        <div class="hero-contact">
+          <span>(214) 605-4762</span>
+          <span>Dallas–Fort Worth, TX</span>
+          <a href="mailto:nabilpervezgg@gmail.com">nabilpervezgg@gmail.com</a>
+          <a href="https://linkedin.com/in/perveznabil" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a href="https://github.com/nabilpervez" target="_blank" rel="noopener">GitHub ↗</a>
+          <a href="https://www.behance.net/aoecreative" target="_blank" rel="noopener">Behance / AOE ↗</a>
+          <a href="https://nabilpervez.com/products" target="_blank" rel="noopener">Portfolio ↗</a>
+        </div>
+        <p class="hero-summary">
+          Award-winning product manager with <strong>10+ years experience</strong> driving enterprise MarTech implementations across CMS, DAM, and AI-powered content platforms. Currently serving as the <strong>AI Subject Matter Expert &amp; Content Producer at T-Mobile</strong>, coaching cross-functional teams on platform adoption and directly influencing Gradial's product roadmap. Hands-on expertise in <strong>Adobe Experience Manager (AEM)</strong> and equipped with practical knowledge through the AEM Foundations certification. Previous clients include <strong>Riot Games, Coca-Cola, LEGO, and Red Bull</strong>. Personal portfolio of <strong>12+ AI-Assisted Code Web Applications</strong>.
+        </p>
+      </div>
+      <div class="hero-image reveal">
+        <img src="https://nabilpervez.com/images/nabil-headshot.jpg" alt="Nabil Pervez Headshot">
+      </div>
     </div>
-    <p class="hero-summary">
-      Award-winning product manager with <strong>10+ years experience</strong> driving enterprise MarTech implementations across CMS, DAM, and AI-powered content platforms. Currently serving as the <strong>Gradial Subject Matter Expert &amp; Implementation Lead at T-Mobile</strong>, coaching cross-functional teams on platform adoption and directly influencing Gradial's product roadmap. Hands-on expertise in <strong>Adobe Experience Manager (AEM)</strong> with AEM Foundations certification. Previous clients include <strong>Riot Games, Coca-Cola, LEGO, and Red Bull</strong>. Personal portfolio of <strong>12+ AI-Assisted Code Web Applications</strong>.
-    </p>
   </section>
 
   <div class="content-grid">
@@ -910,6 +955,60 @@ footer {
             </ul>
           </div>
 
+          <div class="job-card reveal">
+            <div class="job-header">
+              <div>
+                <div class="job-title">Technical Support Engineer</div>
+                <div class="job-company">MutualMind (acquired by Shapiro+Raj)</div>
+              </div>
+              <div class="job-date">2014 – 2016</div>
+            </div>
+            <ul>
+              <li>Provided expert support across multiple operating systems, including Windows, macOS, and Linux, ensuring comprehensive and tailored support for a diverse client base while leading the ITSM team.</li>
+              <li>Resolved technical issues promptly, achieving a <strong>95% first-contact resolution rate</strong> and boosting customer satisfaction scores by <strong>20%</strong>.</li>
+              <li>Conducted training sessions for clients on the effective use of the platform, increasing their self-sufficiency and reducing support requests by <strong>25%</strong>.</li>
+              <li>Achieved <strong>99% SLA compliance</strong> by streamlining support processes and utilizing real-time analytics to monitor performance.</li>
+              <li>Increased customer retention rate by <strong>20%</strong> by providing high-quality, personalized support.</li>
+              <li>Saved the company <strong>$50K annually</strong> by optimizing support workflows and vendor contracts for support tools and services.</li>
+            </ul>
+          </div>
+
+          <div class="job-card reveal">
+            <div class="job-header">
+              <div>
+                <div class="job-title">Functional Analyst</div>
+                <div class="job-company">T-Mobile</div>
+              </div>
+              <div class="job-date">2012 – 2014</div>
+            </div>
+            <ul>
+              <li>Led the ITSM team, swiftly addressing threats to minimize operational impact.</li>
+              <li>Achieved <strong>98% SLA compliance</strong> by streamlining support processes and utilizing real-time analytics to monitor performance.</li>
+              <li>Improved first call resolution rate to <strong>90%</strong> and reduced average response time by <strong>35%</strong> through process optimization and advanced training programs.</li>
+              <li>Decreased average ticket resolution time from 24 hours to 8 hours, resulting in a <strong>50% increase</strong> in customer satisfaction scores.</li>
+              <li>Developed and delivered training programs that improved support staff efficiency by <strong>25%</strong>, reducing onboarding time for new hires by <strong>20%</strong>.</li>
+              <li>Created and maintained technical documentation for common support issues, streamlining troubleshooting processes and reducing average resolution time by <strong>25%</strong>.</li>
+              <li><strong>Promoted:</strong> Tier 1 &gt; Tier 2 &gt; Tier 3 &gt; Trainer &gt; Functional Analyst.</li>
+            </ul>
+          </div>
+
+          <div class="job-card reveal">
+            <div class="job-header">
+              <div>
+                <div class="job-title">Service Desk Analyst</div>
+                <div class="job-company">Fujitsu</div>
+              </div>
+              <div class="job-date">2011 – 2012</div>
+            </div>
+            <ul>
+              <li>Administered user accounts in Active Directory, ensuring accurate and up-to-date access permissions, which improved user access efficiency and reduced support ticket volume by <strong>20%</strong>.</li>
+              <li>Collaborated with the incident response team to promptly address cybersecurity threats, minimizing operational disruptions and enhancing overall security posture.</li>
+              <li>Managed endpoint security, including firewall maintenance, to safeguard the organization's network against unauthorized access and potential breaches, resulting in a <strong>15% reduction</strong> in security incidents.</li>
+              <li>Provided timely and effective support to users, achieving a <strong>90% first-contact resolution rate</strong> and enhancing overall user satisfaction.</li>
+              <li>Created and maintained technical documentation for common support issues, streamlining troubleshooting processes and reducing average resolution time by <strong>25%</strong>.</li>
+            </ul>
+          </div>
+
         </div>
       </section>
 
@@ -924,6 +1023,17 @@ footer {
           <a class="project-link-btn" href="https://nabilpervez.com/products" target="_blank" rel="noopener">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg>
             View Live Portfolio
+          </a>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-title">Serenity</div>
+          <p class="project-desc">
+            A comprehensive mental health toolkit featuring anxiety management strategies, guided box breathing exercises, and mood-tracking journaling to help users self-regulate and identify actionable mental health solutions.
+          </p>
+          <a class="project-link-btn" href="https://serenity-daily.netlify.app/" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg>
+            View Project
           </a>
         </div>
 
@@ -955,17 +1065,6 @@ footer {
             A privacy-first, purely peer-to-peer video calling platform requiring zero accounts and strictly enforcing no user tracking.
           </p>
           <a class="project-link-btn" href="https://onxychat.netlify.app/" target="_blank" rel="noopener">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg>
-            View Project
-          </a>
-        </div>
-
-        <div class="project-card reveal">
-          <div class="project-title">Serenity</div>
-          <p class="project-desc">
-            A comprehensive mental health toolkit featuring anxiety management strategies, guided box breathing exercises, and mood-tracking journaling to help users self-regulate and identify actionable mental health solutions.
-          </p>
-          <a class="project-link-btn" href="https://serenity-daily.netlify.app/" target="_blank" rel="noopener">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg>
             View Project
           </a>
@@ -1006,13 +1105,18 @@ footer {
         </div>
         <div class="stat-chip">
           <span class="stat-num">90%</span>
-          <span class="stat-label">Referral Rate</span>
+          <span class="stat-label">Client Referral Rate</span>
         </div>
       </div>
 
       <div class="sidebar-section reveal" id="certifications">
         <div class="section-head"><h2>Certifications</h2></div>
-
+        
+        <div class="cert-item">
+          <div class="cert-name">Adobe Target Foundations</div>
+          <div class="cert-sub">Adobe · Sep 2025</div>
+          <div class="cert-id">Skills: Adobe Target</div>
+        </div>
         <div class="cert-item">
           <div class="cert-name">Gradial Practitioner</div>
           <div class="cert-sub">Gradial</div>
@@ -1051,14 +1155,19 @@ footer {
           <span class="tag primary">Gradial</span>
           <span class="tag primary">Adobe Experience Manager</span>
           <span class="tag">AEM Assets (DAM)</span>
-          <span class="tag">WordPress CMS/DAM</span>
+          <span class="tag">WordPress</span>
           <span class="tag">Adobe Target</span>
           <span class="tag">Jira</span>
           <span class="tag">Content Workflow Automation</span>
-          <span class="tag">RAG AI Systems</span>
           <span class="tag">n8n</span>
           <span class="tag">Microsoft Copilot</span>
           <span class="tag">Google Adwords</span>
+          <span class="tag">ChatGPT</span>
+          <span class="tag">Claude</span>
+          <span class="tag">Google Firebase Studio</span>
+          <span class="tag">Loveable</span>
+          <span class="tag">Netlify</span>
+          <span class="tag">Github</span>
         </div>
       </div>
 
@@ -1066,32 +1175,19 @@ footer {
         <div class="section-head"><h2>Core Skills</h2></div>
 
         <div class="skill-cat">Delivery &amp; Product</div>
-        <div class="skill-list">Forward Deployment · Scoping &amp; Discovery · Go-Live Ownership · UAT/QA · Roadmap Influence · Time-to-Value Optimization · Agile / Scrum / Waterfall</div>
+        <div class="skill-list">Forward Deployment · Scoping &amp; Discovery · Go-Live Ownership · UAT/QA · Roadmap Influence · Time-to-Value Optimization · Agile / Scrum / Waterfall · Project Management · Project Plans</div>
 
         <div class="skill-cat">AI &amp; Automation</div>
         <div class="skill-list">Prompt Engineering · AI Assisted Coding · RAG Architecture · AI Workflow Design · LLM Implementation</div>
 
         <div class="skill-cat">Stakeholder &amp; Ops</div>
-        <div class="skill-list">Executive Communication · Cross-Functional Alignment · Enablement &amp; Training · Requirements Elicitation · Risk Management</div>
+        <div class="skill-list">Executive Communication · Cross-Functional Alignment · Enablement &amp; Training · Requirements Elicitation · Risk Management · Organization Skills · Analytical Skills · Business Development · Strategic Thinking · Cross-functional Collaborations</div>
+
+        <div class="skill-cat">Strategy &amp; Marketing</div>
+        <div class="skill-list">Brand Management · Digital Strategy · Marketing Strategy · Influencer Marketing · Community Engagement · Local Marketing · Brand Marketing · Go-to-Market Strategy</div>
 
         <div class="skill-cat">Technical</div>
-        <div class="skill-list">Python · PowerShell · React · Azure AD · Jira · Confluence · Smartsheet · Microsoft Intune</div>
-      </div>
-
-      <div class="sidebar-section reveal" id="education">
-        <div class="section-head"><h2>Education</h2></div>
-        <div class="edu-item">
-          <div class="edu-name">Full Stack Web Development</div>
-          <div class="edu-sub">NuCamp Coding Bootcamp · 2022–2023<br>MongoDB, Express, React, Node.js</div>
-        </div>
-        <div class="edu-item">
-          <div class="edu-name">Computer Science</div>
-          <div class="edu-sub">University of Texas at Dallas · 2011–2013</div>
-        </div>
-        <div class="edu-item">
-          <div class="edu-name">A.S., Computer Science</div>
-          <div class="edu-sub">Collin County Community College · 2008–2011</div>
-        </div>
+        <div class="skill-list">Python · PowerShell · React · Azure AD · Active Directory · Endpoint Security · Incident Response · Virtualization · Jira · Confluence · Microsoft Intune</div>
       </div>
 
       <div class="sidebar-section reveal" id="awards">
@@ -1107,6 +1203,22 @@ footer {
         <div class="award-item">
           <div class="award-name">Finalist — Creative Agency of the Year (×2)</div>
           <div class="award-sub">AOE Creative</div>
+        </div>
+      </div>
+
+      <div class="sidebar-section reveal" id="education">
+        <div class="section-head"><h2>Education</h2></div>
+        <div class="edu-item">
+          <div class="edu-name">Full Stack Web Development</div>
+          <div class="edu-sub">NuCamp Coding Bootcamp · 2022–2023<br>MongoDB, Express, React, Node.js</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-name">Computer Science</div>
+          <div class="edu-sub">University of Texas at Dallas · 2011–2013</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-name">A.S., Computer Science</div>
+          <div class="edu-sub">Collin County Community College · 2008–2011</div>
         </div>
       </div>
 
@@ -1216,7 +1328,7 @@ heroObserver.observe(heroSection);
    NAV ACTIVE STATE
 ───────────────────────────────────── */
 const navLinks = document.querySelectorAll('.nav-links a');
-const sections = document.querySelectorAll('#experience, #projects, #martech, #certifications, #education, #awards');
+const sections = document.querySelectorAll('#experience, #projects, #martech, #certifications, #awards, #education');
 
 const navObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
